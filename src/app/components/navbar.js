@@ -22,7 +22,7 @@ const LinkItem = ({ href, path, children }) => {
   const active = path === href;
   const inactiveColor = useColorModeValue('gray.200', 'whiteAlpha.900');
   return (
-    <NextLink href={href} as={Link} p={2} bg={active ? 'glassTeal' : undefined} color={active ? '#202023' : inactiveColor}>
+    <NextLink href={href} p={2} bg={active ? 'glassTeal' : undefined} color={active ? '#202023' : inactiveColor}>
       {children}
     </NextLink>
   );
@@ -77,13 +77,13 @@ const Navbar = (props) => {
                 variant="outline" />
                 <MenuList>
                   <MenuItem>
-                    <NextLink href="/" as={Link} path={path}>About</NextLink>
+                    <Link href="/" as={NextLink} path={path}>About</Link>
                   </MenuItem>
                   <MenuItem>
-                    <NextLink href="/works" as={Link} path={path}>Works</NextLink>
+                    <Link href="/works" as={NextLink} path={path}>Works</Link>
                   </MenuItem>
                   <MenuItem>
-                    <NextLink href="/post" as={Link} path={path}>Post</NextLink>
+                    <Link href="/post" as={NextLink} path={path}>Post</Link>
                   </MenuItem>
                 </MenuList>
             </Menu>
