@@ -46,3 +46,17 @@ export const GridItemStyle = () => (
     }
   `} />
 )
+
+export const PhotoGridItem = ({id, thumbnail}) => (
+  <Box w="100%" textAlign="center" py={5}>
+    <LinkBox cursor="pointer">
+      <Image 
+          src={thumbnail} 
+          className='grid-item-thumbnail'
+          placeholder='blur'
+          loading='lazy'
+          />
+      <LinkOverlay href={`/photos/${id}`}></LinkOverlay>
+    </LinkBox>
+  </Box>
+)

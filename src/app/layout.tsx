@@ -4,6 +4,8 @@ import { Container } from '@chakra-ui/react'
 import Navbar from './components/navbar'
 import { Providers } from './providers'
 import Layout from './components/transition'
+import NoSSR from './components/no-ssr'
+import Voxel from './components/voxel'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +26,9 @@ export default function RootLayout({
           <Layout>
             <Navbar />
             <Container maxW="container.md" pt={14}>
+              <NoSSR>
+                <Voxel />
+              </NoSSR>
               {children}
             </Container>
           </Layout>

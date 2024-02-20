@@ -17,7 +17,7 @@ export default function Home() {
           <Heading as="h2" variant="page-title">
             Pablo Silva
           </Heading>
-          <p> elgodolfredo (Artist / Developer / Designer)</p>
+          <p> elgodolfredo (Developer / Artist)</p>
         </Box>
         <Box flexShrink={0} mt={{base: 4, md: 0}} ml={{md: 6}} textAlign="center">
           <Image 
@@ -28,6 +28,7 @@ export default function Home() {
             borderRadius="full"
             src="/images/yoda.jpg"
             alt='profile image'
+            width={["50px", "75px", "100px"]}
             />
         </Box>
       </Box>
