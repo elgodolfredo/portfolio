@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <Container>
       <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} alignItems="center">
-        Hello, i'm a full-stack developer based in Argentina!
+        Hello, i&apos;m a full-stack developer based in Argentina!
       </Box>
       <Box display={{md: 'flex'}}>
         <Box flexGrow={1}>
