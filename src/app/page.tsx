@@ -1,9 +1,10 @@
 'use client'
-import { Container, Box, Heading, Image, useColorModeValue, Button } from '@chakra-ui/react';
+import { Container, Box, Heading, Image, useColorModeValue, Button, Grid } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import Section from './components/section';
 import Paragraph from './components/paragraph';
+import ToolImage from './components/tool-image';
 import { BioSection, BioYear } from './components/bio';
 
 export default function Home() {
@@ -65,6 +66,21 @@ export default function Home() {
           <BioYear>2013 to present</BioYear>
           Works at a local security company.
         </BioSection>
+      </Section>
+      <Section delay={0.5} my={10}>
+        <Heading as="h3" variant="section-title">
+          Technologies
+        </Heading>
+        <Grid templateColumns='repeat(4, 1fr)' gap={6}>
+          <ToolImage src='/images/tools/php.png' />
+          <ToolImage src='/images/tools/nodejs.png' />
+          <ToolImage src='/images/tools/python.png' />
+          <ToolImage src='/images/tools/pgsql.png' />
+          <ToolImage src='/images/tools/next.png' />
+          <ToolImage src='/images/tools/react.png' />
+          <ToolImage src='/images/tools/js.png' />
+          <ToolImage src='/images/tools/firebase.png' />
+        </Grid>
       </Section>
     </Container>
   )
