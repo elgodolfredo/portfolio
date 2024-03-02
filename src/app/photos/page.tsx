@@ -1,17 +1,7 @@
 'use client'
-import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
 import Section from '../components/section'
-import { PhotoGridItem, WorkGridItem } from '../components/grid-item'
-
-import thumbCar from '../../../public/images/photos/DSC_0492.jpg'
-import thumbKeyboard from '../../../public/images/photos/DSC_0036.jpg'
-import thumbRepublic from '../../../public/images/photos/DSC_0078.jpg'
-import thumbHome from '../../../public/images/photos/DSC_0094.jpg'
-import thumbU from '../../../public/images/photos/DSC_0119.jpg'
-import thumbBoat from '../../../public/images/photos/DSC_0132.jpg'
-import thumbBuda from '../../../public/images/photos/DSC_0387.jpg'
-import thumbSun from '../../../public/images/photos/DSC_0545.jpg'
-import thumbMountain from '../../../public/images/photos/DSC_0549.jpg'
+import { PhotoGridItem } from '../components/grid-item'
 
 const Photos = () => {
   return (
@@ -21,15 +11,15 @@ const Photos = () => {
       </Heading>
       <SimpleGrid columns={[3,3,1]} gap={6}>
         <Section>
-          <PhotoGridItem id="car" thumbnail={thumbCar} />
-          <PhotoGridItem id="keyboard" thumbnail={thumbKeyboard} />
-          <PhotoGridItem id="republic" thumbnail={thumbRepublic} />
-          <PhotoGridItem id="home" thumbnail={thumbHome} />
-          <PhotoGridItem id="u" thumbnail={thumbU} />
-          <PhotoGridItem id="boat" thumbnail={thumbBoat} />
-          <PhotoGridItem id="buda" thumbnail={thumbBuda} />
-          <PhotoGridItem id="sun" thumbnail={thumbSun} />
-          <PhotoGridItem id="mountain" thumbnail={thumbMountain} />
+          <PhotoGridItem id="car" thumbnail='/images/photos/DSC_0492.jpg' />
+          <PhotoGridItem id="keyboard" thumbnail='/images/photos/DSC_0036.jpg' />
+          <PhotoGridItem id="republic" thumbnail='/images/photos/DSC_0078.jpg' />
+          <PhotoGridItem id="home" thumbnail='/images/photos/DSC_0094.jpg' />
+          <PhotoGridItem id="u" thumbnail='/images/photos/DSC_0119.jpg' />
+          <PhotoGridItem id="boat" thumbnail='/images/photos/DSC_0132.jpg' />
+          <PhotoGridItem id="buda" thumbnail='/images/photos/DSC_0387.jpg' />
+          <PhotoGridItem id="sun" thumbnail='/images/photos/DSC_0545.jpg' />
+          <PhotoGridItem id="mountain" thumbnail='/images/photos/DSC_0549.jpg' />
         </Section>
       </SimpleGrid>
     </Container>
