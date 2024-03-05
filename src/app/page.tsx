@@ -1,19 +1,18 @@
 'use client'
-import { Container, Box, Heading, Image, useColorModeValue, Button, Grid } from '@chakra-ui/react';
+import { Container, Box, Heading, Image, useColorModeValue, Stack, Button, Grid, FormControl, InputGroup, Input, Textarea } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import NextLink from 'next/link';
 import Section from './components/section';
 import Paragraph from './components/paragraph';
 import ToolImage from './components/tool-image';
 import { BioSection, BioYear } from './components/bio';
+import NoSSR from './components/no-ssr'
+import Voxel from './components/voxel'
 
 export default function Home() {
   return (
     <Container>
-      <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} alignItems="center">
-        Hello, i&apos;m a full-stack developer based in Argentina!
-      </Box>
-      <Box display={{md: 'flex'}}>
+      <Box display={{md: 'flex'}} paddingTop={10}>
         <Box flexGrow={1}>
           <Heading as="h2" variant="page-title">
             Pablo Silva
@@ -81,6 +80,21 @@ export default function Home() {
           <ToolImage src='/images/tools/js.png' />
           <ToolImage src='/images/tools/firebase.png' />
         </Grid>
+      </Section>
+      <Section delay={0.4}>
+        <NoSSR>
+          <Voxel />
+        </NoSSR>
+        <Box borderRadius="lg" p={3} mb={6} alignItems="center" textAlign="center">
+          Feel free to contact me for any questions or feedback! 
+        </Box> 
+        <Stack spacing={3}>
+          <Input variant='filled' placeholder='Email' name='email' id='email' />
+          <Textarea variant='filled' placeholder='Message' name='message' id='message' />
+          <Button type="submit" colorScheme="teal" mt={4}>
+            Send!
+          </Button>
+        </Stack>
       </Section>
     </Container>
   )

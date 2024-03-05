@@ -70,7 +70,7 @@ const Voxel = () => {
       } else {
         container.replaceChild(renderer2.domElement, wholeAssVoxel.current.domElement);
       }
-      loadGLTFModel(scene.current, '/keyboard.glb', {
+      loadGLTFModel(scene.current, '/mate.glb', {
         receiveShadow: true,
         castShadow: true,
       }).then(() => {
@@ -106,10 +106,10 @@ const Voxel = () => {
   useEffect(() => {
     const handleResize = () => {
       const { current: container } = refContainer;
-      if (container && renderer) {
+      if (container && renderer.current) {
         const scW = container.clientWidth;
         const scH = container.clientHeight;
-        renderer.setSize(scW, scH);
+        renderer.current.setSize(scW, scH);
       }
     };
     window.addEventListener('resize', handleResize, false);
@@ -123,8 +123,8 @@ const Voxel = () => {
       ref={refContainer}
       className='keyboard' 
       m="auto"
-      height={200}
-      width={600}
+      height={400}
+      width={500}
       paddingBottom={20}
     >
     {loading && <Spinner size='xl' />}
