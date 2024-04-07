@@ -19,6 +19,7 @@ const Photos = () => {
           <PhotoGridItem id="boat" thumbnail='/images/photos/DSC_0132.jpg' />
           <PhotoGridItem id="buda" thumbnail='/images/photos/DSC_0387.jpg' />
           <PhotoGridItem id="sun" thumbnail='/images/photos/DSC_0545.jpg' />
+          <PhotoGridItem id="misty" thumbnail='/images/photos/DSC_0526.jpg' />
           <PhotoGridItem id="mountain" thumbnail='/images/photos/DSC_0549.jpg' />
         </Section>
       </SimpleGrid>
