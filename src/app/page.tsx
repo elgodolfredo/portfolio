@@ -15,7 +15,7 @@ export default function Home() {
       <Box display={{md: 'flex'}} paddingTop={10}>
         <Box flexGrow={1}>
           <Heading as="h2" variant="page-title">
-            Pablo Silva
+            Fabi Silva
           </Heading>
           <p> elgodolfredo (Developer / Artist)</p>
         </Box>
@@ -91,7 +91,7 @@ export default function Home() {
         <Stack spacing={3}>
           <Input variant='filled' placeholder='Email' name='email' id='email' />
           <Textarea variant='filled' placeholder='Message' name='message' id='message' />
-          <Button type="submit" colorScheme="teal" mt={4}>
+          <Button type="submit" colorScheme="teal" m={4}>
             Send!
           </Button>
         </Stack>

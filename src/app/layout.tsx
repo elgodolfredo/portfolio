@@ -8,7 +8,7 @@ import Layout from './components/transition'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Pablo Silva - Homepage',
+  title: 'Fabi Silva - Homepage',
   description: 'Portfolio',
 }
 
@@ -23,7 +23,7 @@ export default function RootLayout({
         <Providers>
           <Layout>
             <Navbar />
-            <Container maxW="container.md" pt={14}>
+            <Container maxW="container.md" pt={20}>
               {children}
             </Container>
           </Layout>

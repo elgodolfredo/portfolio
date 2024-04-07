@@ -26,7 +26,7 @@ const Logo = () => {
           fontFamily="M PLUS Rounded 1c"
           fontWeight="bold"
           ml={3}>
-          Pablo Silva
+          Fabi Silva
           </Text>
       </LogoBox>
     </NextLink>
