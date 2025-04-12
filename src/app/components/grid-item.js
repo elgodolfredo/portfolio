@@ -1,4 +1,4 @@
-import { Box, Text, LinkBox, LinkOverlay, Image } from '@chakra-ui/react'
+import { Box, Text, LinkBox, LinkOverlay, Image, Modal, ModalBody, ModalCloseButton, useDisclosure, ModalOverlay, ModalContent, ModalHeader } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 
 export const GridItem = ({ children, href, title, thumbnail }) => (
@@ -44,17 +44,27 @@ export const GridItemStyle = () => (
   `} />
 )
 
-export const PhotoGridItem = ({id, thumbnail}) => (
-  <Box w="100%" textAlign="center" py={5}>
-    <LinkBox cursor="pointer">
-      <Image 
-        src={thumbnail}
-        alt={id}
-        className='grid-item-thumbnail'
-        placeholder='blur'
-        loading='lazy'
-      />
-      <LinkOverlay href={`/photos/${id}`}></LinkOverlay>
-    </LinkBox>
+export const PhotoGridItem = ({id, thumbnail}) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  return <Box w="100%" textAlign="center" py={5}>
+    <Image 
+      src={thumbnail}
+      alt={id}
+      className='grid-item-thumbnail'
+      placeholder='blur'
+      loading='lazy'
+      cursor='pointer'
+      onClick={onOpen}
+    />
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader></ModalHeader>
+        <ModalCloseButton />
+          <ModalBody>
+            <Image src={thumbnail} alt={id} />
+          </ModalBody>
+      </ModalContent>
+    </Modal>
   </Box>
-)
+}

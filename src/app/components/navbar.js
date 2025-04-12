@@ -3,8 +3,8 @@ import Logo from './logo';
 import NextLink from 'next/link';
 import {
   Container,
-  Box, 
-  Link, 
+  Box,
+  Link,
   Stack,
   Heading,
   Flex,
@@ -31,7 +31,7 @@ const LinkItem = ({ href, path, children }) => {
 const Navbar = (props) => {
 
   const { path } = props;
-  
+
   return (
     <Box
       position="fixed"
@@ -42,9 +42,9 @@ const Navbar = (props) => {
       zIndex={1}
       {...props}
     >
-      <Container 
-        display="flex" 
-        p={2} 
+      <Container
+        display="flex"
+        p={2}
         maxW="container.md"
         flexWrap="wrap"
         alignItems="center"
@@ -75,17 +75,17 @@ const Navbar = (props) => {
                 aria-label="Options"
                 icon={<HamburgerIcon />}
                 variant="outline" />
-                <MenuList>
-                  <MenuItem>
-                    <Link href="/" as={NextLink} path={path}>About</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href="/works" as={NextLink} path={path}>Works</Link>
-                  </MenuItem>
-                  <MenuItem>
-                    <Link href="/photos" as={NextLink} path={path}>Post</Link>
-                  </MenuItem>
-                </MenuList>
+              <MenuList>
+                <MenuItem>
+                  <Link href="/" as={NextLink} path={path}>About</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/works" as={NextLink} path={path}>Works</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link href="/photos" as={NextLink} path={path}>Photos</Link>
+                </MenuItem>
+              </MenuList>
             </Menu>
           </Box>
         </Box>

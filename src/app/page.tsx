@@ -12,31 +12,31 @@ import Voxel from './components/voxel'
 export default function Home() {
   return (
     <Container>
-      <Box display={{md: 'flex'}} paddingTop={10}>
+      <Box display={{ md: 'flex' }} paddingTop={10}>
         <Box flexGrow={1}>
           <Heading as="h2" variant="page-title">
             Fabi Silva
           </Heading>
           <p> elgodolfredo (Developer / Artist)</p>
         </Box>
-        <Box flexShrink={0} mt={{base: 4, md: 0}} ml={{md: 6}} textAlign="center">
-          <Image 
-            borderColor="whiteAlpha.800" 
+        <Box flexShrink={0} mt={{ base: 4, md: 0 }} ml={{ md: 6 }} textAlign="center">
+          <Image
+            borderColor="whiteAlpha.800"
             borderWidth={2}
             borderStyle="solid"
             display="inline-block"
             borderRadius="full"
-            src="/images/yoda.jpg"
+            src="/images/mirror.jpg"
             alt='profile image'
             width={["50px", "75px", "100px"]}
-            />
+          />
         </Box>
       </Box>
       <Section delay={0.1}>
         <Heading as="h3" variant="section-title">
           Work
         </Heading>
-        <Paragraph>Pablo is a freelancer and a full-stack developer, and also with an art passion.</Paragraph>
+        <Paragraph>Fabi is a freelancer and a full-stack developer, and also with an art passion.</Paragraph>
         <Box textAlign="center" my={4}>
           <NextLink href="/works">
             <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
@@ -86,8 +86,8 @@ export default function Home() {
           <Voxel />
         </NoSSR>
         <Box borderRadius="lg" p={3} mb={6} alignItems="center" textAlign="center">
-          Feel free to contact me for any questions or feedback! 
-        </Box> 
+          Feel free to contact me for any questions or feedback!
+        </Box>
         <Stack spacing={3}>
           <Input variant='filled' placeholder='Email' name='email' id='email' />
           <Textarea variant='filled' placeholder='Message' name='message' id='message' />
