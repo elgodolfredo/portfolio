@@ -8,8 +8,49 @@ import ToolImage from './components/tool-image';
 import { BioSection, BioYear } from './components/bio';
 import NoSSR from './components/no-ssr'
 import Voxel from './components/voxel'
+import { useState } from 'react';
 
 export default function Home() {
+  const [formData, setFormData] = useState({ email: '', message: '' });
+  const [status, setStatus] = useState('');
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setStatus('Sending...');
+
+    try {
+      const res = await fetch('/api/email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: 'Contact Form', // Or grab this from another input if needed
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus('Message sent! ✅');
+        setFormData({ email: '', message: '' });
+      } else {
+        setStatus(data.message || 'Something went wrong ❌');
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus('Error sending email ❌');
+    }
+  };
+
   return (
     <Container>
       <Box display={{ md: 'flex' }} paddingTop={10}>
@@ -88,13 +129,32 @@ export default function Home() {
         <Box borderRadius="lg" p={3} mb={6} alignItems="center" textAlign="center">
           Feel free to contact me for any questions or feedback!
         </Box>
-        <Stack spacing={3}>
-          <Input variant='filled' placeholder='Email' name='email' id='email' />
-          <Textarea variant='filled' placeholder='Message' name='message' id='message' />
-          <Button type="submit" colorScheme="teal" m={4}>
-            Send!
-          </Button>
-        </Stack>
+        <form onSubmit={handleSubmit}>
+          <Stack spacing={3}>
+            <Input
+              variant="filled"
+              placeholder="Email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <Textarea
+              variant="filled"
+              placeholder="Message"
+              name="message"
+              id="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+            <Button type="submit" colorScheme="teal" m={4}>
+              Send!
+            </Button>
+            {status && <p>{status}</p>}
+          </Stack>
+        </form>
       </Section>
     </Container>
   )
