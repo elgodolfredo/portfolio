@@ -1,5 +1,23 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Tech Stack
+
+- **Next.js 16.1.6** (with Turbopack)
+- **React 19.2.4**
+- **TypeScript 5**
+- **Chakra UI 2.10.9**
+- **Three.js 0.161.0**
+- **Node.js 22.18.0**
+
+## Migration Notes
+
+This project was upgraded from Next.js 14.0.4 to 16.1.6 on February 16, 2026, using an incremental migration strategy (14 → 15 → 16). See [UPGRADE_LOG.md](./UPGRADE_LOG.md) for detailed migration notes and performance improvements.
+
+Key improvements after migration:
+- **3.5× faster production builds** (15s → 4.3s)
+- **5.9× faster dev server startup** (~2s → 340ms)
+- Default Turbopack bundler for improved performance
+
 ## Getting Started
 
 First, run the development server:
