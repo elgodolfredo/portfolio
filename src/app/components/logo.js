@@ -1,5 +1,7 @@
+"use client"
 import NextLink from 'next/link';
-import { Text, Image, useColorModeValue } from '@chakra-ui/react';
+import { Text, Image } from '@chakra-ui/react';
+import { useColorModeValue } from './ui/color-mode';
 import styled from '@emotion/styled';
 
 const LogoBox = styled.span`
@@ -10,7 +12,7 @@ const LogoBox = styled.span`
   // height: 30px;
   // line-height: 20px;
   padding: 10px;
-  &:hover img {j
+  &:hover img {
     transform: rotate(20deg);
   }
 `;
@@ -34,3 +36,4 @@ const Logo = () => {
 }
 
 export default Logo;
+

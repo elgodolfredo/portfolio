@@ -1,22 +1,18 @@
+"use client"
 import { motion } from 'framer-motion'
-import { chakra, shouldForwardProp } from '@chakra-ui/react'
-
-const StyleDiv = chakra(motion.div, {
-  shouldForwardProp: (prop) => {
-    return shouldForwardProp(prop) || prop === 'transition'
-  }
-})
+import { Box } from '@chakra-ui/react'
 
 const Section = ({ children, delay=0, my=0 }) => {
   return (
-    <StyleDiv
+    <Box
+      as={motion.div}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay }}
       my={my}
     >
       {children}
-    </StyleDiv>
+    </Box>
   )
 }
 

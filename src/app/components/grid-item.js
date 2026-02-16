@@ -1,4 +1,5 @@
-import { Box, Text, LinkBox, LinkOverlay, Image, Modal, ModalBody, ModalCloseButton, useDisclosure, ModalOverlay, ModalContent, ModalHeader } from '@chakra-ui/react'
+"use client"
+import { Box, Text, LinkBox, LinkOverlay, Image, Dialog, useDisclosure, Portal } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 
 export const GridItem = ({ children, href, title, thumbnail }) => (
@@ -45,7 +46,7 @@ export const GridItemStyle = () => (
 )
 
 export const PhotoGridItem = ({id, thumbnail}) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { open, onOpen, onClose } = useDisclosure();
   return <Box w="100%" textAlign="center" py={5}>
     <Image 
       src={thumbnail}
@@ -56,15 +57,19 @@ export const PhotoGridItem = ({id, thumbnail}) => {
       cursor='pointer'
       onClick={onOpen}
     />
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader></ModalHeader>
-        <ModalCloseButton />
-          <ModalBody>
-            <Image src={thumbnail} alt={id} />
-          </ModalBody>
-      </ModalContent>
-    </Modal>
+    <Dialog.Root open={open} onOpenChange={(e) => !e.open && onClose()}>
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          <Dialog.Content>
+            <Dialog.Header></Dialog.Header>
+            <Dialog.CloseTrigger />
+            <Dialog.Body>
+              <Image src={thumbnail} alt={id} />
+            </Dialog.Body>
+          </Dialog.Content>
+        </Dialog.Positioner>
+      </Portal>
+    </Dialog.Root>
   </Box>
 }

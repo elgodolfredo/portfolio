@@ -12,10 +12,10 @@ import {
   MenuItem,
   MenuList,
   MenuButton,
-  IconButton,
-  useColorModeValue
+  IconButton
 } from '@chakra-ui/react';
-import { HamburgerIcon } from '@chakra-ui/icons';
+import { LuMenu } from 'react-icons/lu';
+import { useColorModeValue } from './ui/color-mode';
 import ThemeToggleButton from './theme-toggle-button';
 
 const LinkItem = ({ href, path, children }) => {
@@ -69,24 +69,26 @@ const Navbar = (props) => {
         <Box flex={1} align="right">
           <ThemeToggleButton />
           <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu>
-              <MenuButton
-                as={IconButton}
-                aria-label="Options"
-                icon={<HamburgerIcon />}
-                variant="outline" />
-              <MenuList>
-                <MenuItem>
-                  <Link href="/" as={NextLink} path={path}>About</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link href="/works" as={NextLink} path={path}>Works</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link href="/photos" as={NextLink} path={path}>Photos</Link>
-                </MenuItem>
-              </MenuList>
-            </Menu>
+            <Menu.Root>
+              <Menu.Trigger asChild>
+                <IconButton
+                  aria-label="Options"
+                  variant="outline">
+                  <LuMenu />
+                </IconButton>
+              </Menu.Trigger>
+              <Menu.Content>
+                <Menu.Item>
+                  <Link as={NextLink} href="/" path={path}>About</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link as={NextLink} href="/works" path={path}>Works</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link as={NextLink} href="/photos" path={path}>Photos</Link>
+                </Menu.Item>
+              </Menu.Content>
+            </Menu.Root>
           </Box>
         </Box>
       </Container>
@@ -95,3 +97,4 @@ const Navbar = (props) => {
 }
 
 export default Navbar;
+

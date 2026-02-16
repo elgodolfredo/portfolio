@@ -1,6 +1,6 @@
 'use client'
-import { Container, Box, Heading, Image, useColorModeValue, Stack, Button, Grid, FormControl, InputGroup, Input, Textarea } from '@chakra-ui/react';
-import { ChevronRightIcon } from '@chakra-ui/icons';
+import { Container, Box, Heading, Image, Stack, Button, Grid, Input, Textarea } from '@chakra-ui/react';
+import { LuChevronRight } from 'react-icons/lu';
 import NextLink from 'next/link';
 import Section from './components/section';
 import Paragraph from './components/paragraph';
@@ -55,7 +55,7 @@ export default function Home() {
     <Container>
       <Box display={{ md: 'flex' }} paddingTop={10}>
         <Box flexGrow={1}>
-          <Heading as="h2" variant="page-title">
+          <Heading as="h2" css={{ textDecoration: 'underline', fontSize: 20, textUnderlineOffset: 6, textDecorationColor: '#525252', textDecorationThickness: 4, marginTop: 3, marginBottom: 4 }}>
             Fabi Silva
           </Heading>
           <p> elgodolfredo (Developer / Artist)</p>
@@ -74,20 +74,21 @@ export default function Home() {
         </Box>
       </Box>
       <Section delay={0.1}>
-        <Heading as="h3" variant="section-title">
+        <Heading as="h3" css={{ textDecoration: 'underline', fontSize: 20, textUnderlineOffset: 6, textDecorationColor: '#525252', textDecorationThickness: 4, marginTop: 3, marginBottom: 4 }}>
           Work
         </Heading>
         <Paragraph>Fabi is a freelancer and a full-stack developer, and also with an art passion.</Paragraph>
         <Box textAlign="center" my={4}>
           <NextLink href="/works">
-            <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
+            <Button colorPalette="teal">
+              <LuChevronRight />
               My porfolio
             </Button>
           </NextLink>
         </Box>
       </Section>
       <Section delay={0.2}>
-        <Heading as="h3" variant="section-title">
+        <Heading as="h3" css={{ textDecoration: 'underline', fontSize: 20, textUnderlineOffset: 6, textDecorationColor: '#525252', textDecorationThickness: 4, marginTop: 3, marginBottom: 4 }}>
           Bio
         </Heading>
         <BioSection>
@@ -108,7 +109,7 @@ export default function Home() {
         </BioSection>
       </Section>
       <Section delay={0.5} my={10}>
-        <Heading as="h3" variant="section-title">
+        <Heading as="h3" css={{ textDecoration: 'underline', fontSize: 20, textUnderlineOffset: 6, textDecorationColor: '#525252', textDecorationThickness: 4, marginTop: 3, marginBottom: 4 }}>
           Technologies
         </Heading>
         <Grid templateColumns='repeat(4, 1fr)' gap={6}>
@@ -130,9 +131,9 @@ export default function Home() {
           Feel free to contact me for any questions or feedback!
         </Box>
         <form onSubmit={handleSubmit}>
-          <Stack spacing={3}>
+          <Stack gap={3}>
             <Input
-              variant="filled"
+              variant="subtle"
               placeholder="Email"
               name="email"
               id="email"
@@ -141,7 +142,7 @@ export default function Home() {
               required
             />
             <Textarea
-              variant="filled"
+              variant="subtle"
               placeholder="Message"
               name="message"
               id="message"
@@ -149,7 +150,7 @@ export default function Home() {
               onChange={handleChange}
               required
             />
-            <Button type="submit" colorScheme="teal" m={4}>
+            <Button type="submit" colorPalette="teal" m={4}>
               Send!
             </Button>
             {status && <p>{status}</p>}
@@ -159,3 +160,4 @@ export default function Home() {
     </Container>
   )
 }
+

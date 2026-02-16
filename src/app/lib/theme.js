@@ -1,56 +1,44 @@
-import { extendTheme } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
+import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react"
 
-const styles = {
-  global: (props) => ({
-    body: {
-      bg: mode('#f0e7bd', '#202023')(props),
+const customConfig = defineConfig({
+  globalCss: {
+    'body': {
+      bg: { base: '#f0e7bd', _dark: '#202023' },
     },
-  }),
-};
-
-const components = {
-  Heading: {
-    variants: {
-      'section-title' : {
-        textDecoration: 'underline',
-        fontSize: 20,
-        textUnderlineOffset: 6,
-        textDecorationColor: '#525252',
-        textDecorationThickness: 4,
-        marginTop: 3,
-        marginBottom: 4,
-      }
-    }
   },
-  Link: {
-    baseStyle: props => ({
-      color: mode('#3d7aed', '#ff63c3')(props),
-      textUnderlineOffset: 3,
-    }),
-  }
-}
-
-const fonts = {
-  heading: "'M PLUS Rounded 1c', sans-serif",
-  body: "'M PLUS Rounded 1c', sans-serif",
-}
-
-const colors = {
-  glassTeal: '#88ccca',
-}
-
-const config  = {
-  initialColorMode: 'dark',
-  useSystemColorMode: true,
-}
-
-const theme = extendTheme({
-  config,
-  styles,
-  components,
-  colors,
-  fonts
+  theme: {
+    tokens: {
+      fonts: {
+        heading: { value: "'M PLUS Rounded 1c', sans-serif" },
+        body: { value: "'M PLUS Rounded 1c', sans-serif" },
+      },
+      colors: {
+        glassTeal: { value: '#88ccca' },
+      },
+    },
+    recipes: {
+      heading: {
+        variants: {
+          'section-title': {
+            textDecoration: 'underline',
+            fontSize: '20px',
+            textUnderlineOffset: '6px',
+            textDecorationColor: '#525252',
+            textDecorationThickness: '4px',
+            marginTop: '3',
+            marginBottom: '4',
+          }
+        }
+      },
+      link: {
+        base: {
+          textUnderlineOffset: '3px',
+          color: { base: '#3d7aed', _dark: '#ff63c3' },
+        }
+      }
+    },
+  },
 })
 
-export default theme;
+export const system = createSystem(defaultConfig, customConfig)
+export default system;
