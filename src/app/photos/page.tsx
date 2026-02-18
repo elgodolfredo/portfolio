@@ -5,7 +5,7 @@ import { PhotoGridItem } from '../components/grid-item'
 
 const Photos = () => {
   return (
-    <Container>
+    <Container fluid maxW="2xl">
       <Heading as="h3" fontSize={20} mb={4}>
         Photos
       </Heading>

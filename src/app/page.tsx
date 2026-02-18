@@ -52,7 +52,7 @@ export default function Home() {
   };
 
   return (
-    <Container>
+    <Container fluid maxW="2xl">
       <Box display={{ md: 'flex' }} paddingTop={10}>
         <Box flexGrow={1}>
           <Heading as="h2" css={{ textDecoration: 'underline', fontSize: 20, textUnderlineOffset: 6, textDecorationColor: '#525252', textDecorationThickness: 4, marginTop: 3, marginBottom: 4 }}>

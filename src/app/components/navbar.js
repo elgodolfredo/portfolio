@@ -12,7 +12,9 @@ import {
   MenuItem,
   MenuList,
   MenuButton,
-  IconButton
+  IconButton,
+  ClientOnly,
+  Skeleton
 } from '@chakra-ui/react';
 import { LuMenu } from 'react-icons/lu';
 import { useColorModeValue } from './ui/color-mode';
@@ -33,66 +35,68 @@ const Navbar = (props) => {
   const { path } = props;
 
   return (
-    <Box
-      position="fixed"
-      as="nav"
-      w="100%"
-      bg={useColorModeValue('#ffffff40', '#20202380')}
-      style={{ backdropFilter: 'blur(10px)' }}
-      zIndex={1}
-      {...props}
-    >
-      <Container
-        display="flex"
-        p={2}
-        maxW="container.md"
-        flexWrap="wrap"
-        alignItems="center"
-        justifyContent="space-between"
+    <ClientOnly fallback={<Box position="fixed" as="nav" w="100%" h="16" zIndex={1}><Skeleton h="100%" /></Box>}>
+      <Box
+        position="fixed"
+        as="nav"
+        w="100%"
+        bg={useColorModeValue('#ffffff40', '#20202380')}
+        style={{ backdropFilter: 'blur(10px)' }}
+        zIndex={1}
+        {...props}
       >
-        <Flex align="center" mr={5}>
-          <Heading as="h1" size="lg" letterSpacing="tighter">
-            <Logo />
-          </Heading>
-        </Flex>
-        <Stack
-          direction={{ base: 'column', md: 'row' }}
-          display={{ base: 'none', md: 'flex' }}
-          width={{ base: 'full', md: 'auto' }}
+        <Container
+          display="flex"
+          p={2}
+          maxW="2xl"
+          flexWrap="wrap"
           alignItems="center"
-          flexGrow={1}
-          mt={{ base: 4, md: 0 }}
+          justifyContent="space-between"
         >
-          <LinkItem href="/works" path={path}>Works</LinkItem>
-          <LinkItem href="/photos" path={path}>Photos</LinkItem>
-        </Stack>
-        <Box flex={1} align="right">
-          <ThemeToggleButton />
-          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
-            <Menu.Root>
-              <Menu.Trigger asChild>
-                <IconButton
-                  aria-label="Options"
-                  variant="outline">
-                  <LuMenu />
-                </IconButton>
-              </Menu.Trigger>
-              <Menu.Content>
-                <Menu.Item>
-                  <Link as={NextLink} href="/" path={path}>About</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link as={NextLink} href="/works" path={path}>Works</Link>
-                </Menu.Item>
-                <Menu.Item>
-                  <Link as={NextLink} href="/photos" path={path}>Photos</Link>
-                </Menu.Item>
-              </Menu.Content>
-            </Menu.Root>
-          </Box>
-        </Box>
-      </Container>
-    </Box>
+          <Flex align="center" mr={5}>
+            <Heading as="h1" size="lg" letterSpacing="tighter">
+              <Logo />
+            </Heading>
+          </Flex>
+          <Stack
+            direction={{ base: 'column', md: 'row' }}
+            display={{ base: 'none', md: 'flex' }}
+            width={{ base: 'full', md: 'auto' }}
+            alignItems="center"
+            flexGrow={1}
+            mt={{ base: 4, md: 0 }}
+          >
+            <LinkItem href="/works" path={path}>Works</LinkItem>
+            <LinkItem href="/photos" path={path}>Photos</LinkItem>
+          </Stack>
+          <Flex align="center" gap={2} justifyContent="flex-end">
+            <ThemeToggleButton />
+            <Box display={{ base: 'inline-block', md: 'none' }}>
+              <Menu.Root>
+                <Menu.Trigger asChild>
+                  <IconButton
+                    aria-label="Options"
+                    variant="outline">
+                    <LuMenu />
+                  </IconButton>
+                </Menu.Trigger>
+                <Menu.Content>
+                  <Menu.Item>
+                    <Link as={NextLink} href="/" path={path}>About</Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                    <Link as={NextLink} href="/works" path={path}>Works</Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                    <Link as={NextLink} href="/photos" path={path}>Photos</Link>
+                  </Menu.Item>
+                </Menu.Content>
+              </Menu.Root>
+            </Box>
+          </Flex>
+        </Container>
+      </Box>
+    </ClientOnly>
   )
 }
 

@@ -6,8 +6,10 @@ import { system } from "../../lib/theme"
 
 export function Provider(props: { children: React.ReactNode }) {
   return (
-    <ChakraProvider value={system}>
-      <ColorModeProvider>{props.children}</ColorModeProvider>
-    </ChakraProvider>
+    <ColorModeProvider>
+      <ChakraProvider value={system}>
+        {props.children}
+      </ChakraProvider>
+    </ColorModeProvider>
   )
 }
